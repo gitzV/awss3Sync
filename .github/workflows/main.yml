@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: gitzV/awss3Sync/s3-sync-action@master
+    - uses: gitzV/awss3Sync@master
       with:
         args: --acl public-read --follow-symlinks --delete
       env:
