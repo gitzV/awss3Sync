@@ -59,7 +59,7 @@ jobs:
 
   DEV:
     runs-on: ubuntu-latest
-	environment : DEV
+	environment: DEV
     steps:
     - name: Checkout
       uses: actions/checkout@v1
