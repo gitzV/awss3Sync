@@ -38,7 +38,7 @@ jobs:
           echo test, and deploy your project.		
 
 
-  deploy:
+  DEV:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
