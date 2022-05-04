@@ -5,13 +5,17 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ main ]  
   pull_request:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+    id-token: write
+    contents: read# This is required for actions/checkout@v2  
+    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -41,6 +45,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
