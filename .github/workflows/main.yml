@@ -9,7 +9,7 @@ on:
     
   pull_request_review_comment:
     id-token: write
-    contents: read# This is required for actions/checkout@v2
+    contents: read
     
   pull_request:
     branches: [ main ]
