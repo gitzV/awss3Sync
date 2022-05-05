@@ -6,9 +6,11 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]  
-  permissions:
+    
+  pull_request_review_comment:
     id-token: write
     contents: read# This is required for actions/checkout@v2
+    
   pull_request:
     branches: [ main ]
 
