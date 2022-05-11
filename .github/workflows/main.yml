@@ -65,7 +65,7 @@ jobs:
        print("Sanjy")
       
     - name: Run stack
-      run: aws cloudformation deploy  --stack-name Devops --template-file GlueJobYml.yml
+      #run: aws cloudformation deploy  --stack-name Devops --template-file GlueJobYml.yml
       
     
 
