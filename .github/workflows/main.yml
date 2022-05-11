@@ -65,7 +65,7 @@ jobs:
           aws s3 sync .  s3://${{ secrets.AWS_S3_BUCKET }}
           print("Sanjy")
       
-    - name: Run stack
+    #- name: Run stack
       #run: aws cloudformation deploy  --stack-name Devops --template-file GlueJobYml.yml
       
     
