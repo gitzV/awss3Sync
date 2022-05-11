@@ -63,7 +63,7 @@ jobs:
     - name: Copy files to s3
       run: |
           aws s3 sync .  s3://${{ secrets.AWS_S3_BUCKET }}
-          cat config.txt | while read a b c d; do echo "$a:$b:$c:$d"; done
+          cat config.txt | while read a b c d; do echo "$a $b $c $d"; done
 
       
     #- name: Run stack
