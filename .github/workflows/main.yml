@@ -81,6 +81,6 @@ jobs:
           cat config.txt | while read a b c d; do echo "$a $b  $d"; done
 
       
-    #- name: Run stack
-      #run: aws cloudformation deploy  --stack-name Devops --template-file GlueJobYml.yml
+    - name: Run stack
+      run: aws cloudformation create-stack  --stack-name Devops1 --template-body file://GlueJobYml.yml --parameters file://stackParameter1.json
       
