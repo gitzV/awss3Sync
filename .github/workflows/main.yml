@@ -71,16 +71,22 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-south-1        
+        aws-region: ap-south-1               
         role-to-assume: arn:aws:iam::446963233070:role/gitActionRole
         #role-session-name: samplerolesession
-
+        
     - name: Copy files to s3
       run: |
-          aws s3 sync .  s3://${{ secrets.AWS_S3_BUCKET }}
-          cat config.txt | while read a b c d; do echo "$a $b  $d"; done
+           aws sts get-caller-identity --region ap-south-1
+
+
+
+    #- name: Copy files to s3
+    #  run: |
+    #      aws s3 sync .  s3://${{ secrets.AWS_S3_BUCKET }}
+    #      cat config.txt | while read a b c d; do echo "$a $b  $d"; done
 
       
-    - name: Run stack
-      run: aws cloudformation create-stack  --stack-name Devops1 --template-body file://GlueJobYml.yml --parameters file://stackParameter1.json
+    #- name: Run stack
+    #  run: aws cloudformation create-stack  --stack-name Devops1 --template-body file://GlueJobYml.yml --parameters file://stackParameter1.json
       
