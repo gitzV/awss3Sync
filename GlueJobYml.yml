@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Glue ETL"
+Parameters:
+  ScriptBucketName:
+    Type: String
+    Description: S3 bucket that holds data for demo
+Resources:
+  GlueJobCopyS3toS3:
+    Type: AWS::Glue::Job
+    Properties:      
+      Command:
+        Name: glueetl
+        PythonVersion: 3
+        ScriptLocation:  !Ref ScriptBucketName
+      Description: "Copy files from S3 to S#"
+      ExecutionProperty:
+        MaxConcurrentRuns: 2
+      MaxRetries: 0      
+      Name: copyS3toS3Print
+      GlueVersion: '3.0'
+      Role: SmartHubCrawlerRole
+  ScheduledJobTrigger:
+    Type: AWS::Glue::Trigger
+    Properties:
+      Name: Foo
+      Description: Scheduled trigger
+      Type: ON_DEMAND    
+      Actions: 
+        - JobName: !Ref GlueJobCopyS3toS3      
