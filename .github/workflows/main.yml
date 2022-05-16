@@ -132,4 +132,3 @@ jobs:
 
     - name: Run stack
       run: aws cloudformation create-stack  --stack-name Devops1 --template-body file://GlueJobYml.yml --parameters file://stackParameter1.json 
-	  	  
