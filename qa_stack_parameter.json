@@ -1,0 +1,6 @@
+[
+  {
+    "ParameterKey": "ScriptBucketName",
+    "ParameterValue": "s3://devopskellogs3bucket/copyS3toS3Print.py"
+  }
+]
