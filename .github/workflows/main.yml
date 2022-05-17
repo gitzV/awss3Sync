@@ -79,7 +79,9 @@ jobs:
       run: aws s3 sync . s3://devopskellogs3bucket/
 
     - name: Run stack
-      run: aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://dev_stack_parameter.json 
+      run: |
+        aws cloudformation delete-stack  --stack-name devStack
+        aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://dev_stack_parameter.json 
 
   QA:
     runs-on: ubuntu-latest
