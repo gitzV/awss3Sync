@@ -79,7 +79,7 @@ jobs:
       run: aws s3 sync . s3://devopskellogs3bucket/
 
     - name: Run stack
-      run: aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://stackParameter1.json 
+      run: aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://dev_stack_parameter.json 
 
   QA:
     runs-on: ubuntu-latest
@@ -105,7 +105,7 @@ jobs:
       run: aws s3 cp test.txt s3://devopskellogs3bucket/
 
     - name: Run stack
-      run: aws cloudformation create-stack  --stack-name qaStack --template-body file://GlueJobYml.yml --parameters file://stackParameter1.json 
+      run: aws cloudformation create-stack  --stack-name qaStack --template-body file://GlueJobYml.yml --parameters file://qa_stack_parameter.json 
 
   PROD:
     runs-on: ubuntu-latest
@@ -131,4 +131,4 @@ jobs:
       run: aws s3 cp test.txt s3://devopskellogs3bucket/
 
     - name: Run stack
-      run: aws cloudformation create-stack  --stack-name prodStack --template-body file://GlueJobYml.yml --parameters file://stackParameter1.json 
+      run: aws cloudformation create-stack  --stack-name prodStack --template-body file://GlueJobYml.yml --parameters file://prod_stack_parameter.json 
