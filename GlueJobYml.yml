@@ -11,7 +11,7 @@ Resources:
     Description: Creating Amazon S3 bucket from CloudFormation
     Properties:
       BucketName: myhardcodedbucket5649777
-  GlueJobCopyS3toS3:
+    GlueJobCopyS3toS3:
     Type: AWS::Glue::Job
     Properties:      
       Command:
@@ -25,7 +25,7 @@ Resources:
       Name: copyS3toS3Print
       GlueVersion: '3.0'
       Role: SmartHubCrawlerRole
-  ScheduledJobTrigger:
+    ScheduledJobTrigger:
     Type: AWS::Glue::Trigger
     Properties:
       Name: Foo
