@@ -76,7 +76,7 @@ jobs:
       run: aws sts get-caller-identity --region ap-south-1               ## Put the region in github secret.
 
     - name: Copy files to s3
-      run: aws s3 sync . s3://devopskellogs3bucket/
+      run: aws s3 sync . s3://mastekkelloggg/
 
     - name: Run stack
       run: 
