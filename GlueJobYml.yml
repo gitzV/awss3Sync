@@ -6,10 +6,6 @@ Description: "Glue ETL"
     #Description: "S3 bucket that holds data for demo"
     #Default: "mastekkelloggdatahubscript"       
 Resources:
-  ScriptBucket:
-    Type: AWS::S3::Bucket
-    #Properties:
-      #BucketName:  mastekkelloggdatahubscript
   GlueJobCopyS3toS3:
     Type: AWS::Glue::Job
     Properties:
