@@ -1,23 +1,23 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "Glue ETL"
-Parameters:
-  ScriptBucketName:
-    Type: String
-    Description: S3 bucket that holds data for demo
+#Parameters:
+  #ScriptBucketName:
+    #Type: String
+    #Description: "S3 bucket that holds data for demo"
+    #Default: "mastekkelloggdatahubscript"       
 Resources:
-    S3Bucket:
-    DeletionPolicy: Retain
+  ScriptBucket:
     Type: AWS::S3::Bucket
-    Description: Creating Amazon S3 bucket from CloudFormation
-    Properties:
-      BucketName: myhardcodedbucket5649777
-    GlueJobCopyS3toS3:
+    #Properties:
+      #BucketName:  mastekkelloggdatahubscript
+  GlueJobCopyS3toS3:
     Type: AWS::Glue::Job
-    Properties:      
+    Properties:
+      GlueVersion: 1.0
       Command:
         Name: glueetl
         PythonVersion: 3
-        ScriptLocation:  !Ref ScriptBucketName
+        ScriptLocation:  "s3://devopskellogs3bucket/copyS3toS3Print.py"
       Description: "Copy files from S3 to S#"
       ExecutionProperty:
         MaxConcurrentRuns: 2
@@ -25,11 +25,13 @@ Resources:
       Name: copyS3toS3Print
       GlueVersion: '3.0'
       Role: SmartHubCrawlerRole
-    ScheduledJobTrigger:
+    DependsOn:
+      - ScriptBucket
+  ScheduledJobTrigger:
     Type: AWS::Glue::Trigger
     Properties:
       Name: Foo
       Description: Scheduled trigger
       Type: ON_DEMAND    
       Actions: 
-        - JobName: !Ref GlueJobCopyS3toS3      
+        - JobName: !Ref GlueJobCopyS3toS3   
