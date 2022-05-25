@@ -21,8 +21,6 @@ Resources:
       Name: copyS3toS3Print
       GlueVersion: '3.0'
       Role: SmartHubCrawlerRole
-    DependsOn:
-      - ScriptBucket
   ScheduledJobTrigger:
     Type: AWS::Glue::Trigger
     Properties:
