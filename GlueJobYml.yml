@@ -32,6 +32,6 @@ Resources:
     Properties:
       Name: Foo
       Description: Scheduled trigger
-      Type: ON_DEMAND    
+      Type: ON_DEMAND   
       Actions: 
         - JobName: !Ref GlueJobCopyS3toS3   
