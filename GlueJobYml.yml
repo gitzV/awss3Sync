@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "Glue ETL"
-#Parameters:
-  #ScriptBucketName:
-    #Type: String
+Parameters:
+  ScriptBucketName:
+    Type: String
     #Description: "S3 bucket that holds data for demo"
     #Default: "mastekkelloggdatahubscript"       
 Resources:
