@@ -13,7 +13,7 @@ Resources:
       Command:
         Name: glueetl
         PythonVersion: 3
-        ScriptLocation:  "s3://devopskellogs3bucket/copyS3toS3Print.py"
+        ScriptLocation:  !Ref ScriptBucketName
       Description: "Copy files from S3 to S#"
       ExecutionProperty:
         MaxConcurrentRuns: 2
