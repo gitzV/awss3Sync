@@ -65,6 +65,7 @@ jobs:
       run: aws s3 sync . s3://mastekkelloggg/
 
     - name: Run stack
-      run: 
+      run: |
+        aws cloudformation delete-stack  --stack-name devStack
         aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml 
         #aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://dev_stack_parameter.json         
