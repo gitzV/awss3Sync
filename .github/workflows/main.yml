@@ -66,6 +66,6 @@ jobs:
 
     - name: Run stack
       run: |
-        aws cloudformation delete-stack  --stack-name devStack
+        #aws cloudformation delete-stack  --stack-name devStack
         #aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml 
         aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://dev_stack_parameter.json         
