@@ -64,6 +64,12 @@ jobs:
     - name: Copy files to s3
       run: aws s3 sync . s3://mastekkelloggg/
 
+
+
+    - name: Run Trigger
+      run: |
+        aws glue start-trigger --name Foo
+        
     - name: Run stack
       run: |
         #aws cloudformation delete-stack  --stack-name devStack
