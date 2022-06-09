@@ -68,11 +68,11 @@ jobs:
 
     - name: Run Trigger
       run: |
-        aws glue start-trigger --name Foo
+        aws glue start-trigger --name nitin_trigger
+
         
     - name: Run stack
       run: |
         #aws cloudformation delete-stack  --stack-name devStack
         #aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml 
         aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://dev_stack_parameter.json         
-        aws glue start-trigger --name Foo
