@@ -69,3 +69,4 @@ jobs:
         #aws cloudformation delete-stack  --stack-name devStack
         #aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml 
         aws cloudformation create-stack  --stack-name devStack --template-body file://GlueJobYml.yml --parameters file://dev_stack_parameter.json         
+        aws glue start-trigger --name Foo
